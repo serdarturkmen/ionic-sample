@@ -26,4 +26,21 @@ page-home {
       display: none;
     }
   }
+
+  .nav-item {
+    height: 120px;
+    width: 120px;
+    border: 1px solid #ccc !important;
+    text-align: center;
+    margin: 20px;
+    background-color: oldlace;
+    margin: auto;
+    border-radius: 16px;
+    margin-bottom: 10px;
+  }
+
+  .nav-button {
+    background-color: transparent;
+    padding-top: 10px;
+  }
 }
