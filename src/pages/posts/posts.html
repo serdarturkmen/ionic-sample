@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar class="posts-page-navbar" color="primary" text-center>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      {{ subreddit ? '/r/' + subreddit : 'Ionic 2 Reddit Reader' }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-menu class="side-menu" type="overlay" [content]="postsList">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Choose subreddit</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-item>
+      <ion-label color="primary" floating>Go to subreddit</ion-label>
+      <ion-input #subredditInput></ion-input>
+    </ion-item>
+    <button class="menu-go-button" ion-button (click)="goToSubreddit(subredditInput.value)" block>Go</button>
+  </ion-content>
+
+</ion-menu>
+
+<ion-content #postsList padding>
+
+  <ion-spinner *ngIf="!loadCompleted" name="crescent" class="posts-load-spinner"></ion-spinner>
+
+  <ion-card *ngFor="let post of posts">
+    <ion-card-content (click)="readPost(post)" class="post-card-content">
+      <ion-card-title class="post-title">{{post.title}}</ion-card-title>
+      <img *ngIf="getPostImage(post)" [src]="getPostImage(post)" (error)="setImageError(post)">
+      <a class="post-author">
+        {{'/r/' + post.subreddit}}, by {{post.author}}
+      </a>
+    </ion-card-content>
+    <ion-row>
+      <ion-col center text-center>
+        <ion-note>
+          <ion-icon name="ios-arrow-up-outline" class="score-icon"></ion-icon>
+          <span>{{post.score}}</span>
+        </ion-note>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          {{(post.created_utc | amFromUnix) | amTimeAgo}}
+        </ion-note>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small color="primary" (click)="goToComments(post)">
+          <ion-icon name="ios-text-outline"></ion-icon>
+          <div>{{post.num_comments}}</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="loadMore($event)">
+    <ion-infinite-scroll-content color="primary">
+      loadingSpinner="crescent"
+      loadingText="Loading more fun...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -7,12 +7,17 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
+<ion-content>
+  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" pager="true" paginationType="bullets" *ngIf="deviceType == 'mobile'">
+    <ion-slide *ngFor="let slide of allSlides" class="swiper-no-swiping" [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')', 'background-size': 'cover'}"></ion-slide>
+    <div *ngIf="currentIndex > 0" class="swiper-button-prev swiper-button-white" (click)="previousSlide()"></div>
+    <div *ngIf="currentIndex < allSlides.length-1" class="swiper-button-next swiper-button-white" (click)="nextSlide()"></div>
+  </ion-slides>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" loop="true" autoplay="2000" pager="true" paginationType="bullets"
+              *ngIf="deviceType == 'large'">
+    <ion-slide *ngFor="let slide of allSlides" class="swiper-no-swiping" [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')', 'background-size': 'cover'}"></ion-slide>
+    <div *ngIf="currentIndex > 0" class="swiper-button-prev swiper-button-white" (click)="previousSlide()"></div>
+    <div *ngIf="currentIndex < allSlides.length-1" class="swiper-button-next swiper-button-white" (click)="nextSlide()"></div>
+  </ion-slides>
 </ion-content>

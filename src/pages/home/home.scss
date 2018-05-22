@@ -1,3 +1,29 @@
 page-home {
-
+  ion-slides {
+    height: 50%;
+  }
+  .swiper-pagination-bullet {
+    background-color: #fff;
+    opacity: 1;
+  }
+  .swiper-pagination-bullet-active {
+    background-color: #1caae1;
+  }
+  ion-slide {
+    background-size: cover;
+  }
+  #slide1 {
+    display: none;
+  }
+  #slide2 {
+    display: block;
+  }
+  @media (min-width: 320px) and (max-width: 480px) {
+    #slide1 {
+      display: block;
+    }
+    #slide2 {
+      display: none;
+    }
+  }
 }

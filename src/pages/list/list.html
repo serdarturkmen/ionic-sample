@@ -9,12 +9,16 @@
 
 <ion-content>
   <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-start></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-end>
-        {{item.note}}
-      </div>
+    <button ion-item *ngFor="let wpPost of wpPosts ;trackBy: trackId" (click)="itemTapped($event, wpPost)">
+      <ion-item style="background-color: #ECF0F1 !important">
+        <ion-avatar item-start>
+          <img src="../../assets/imgs/blog-avatar.jpeg">
+        </ion-avatar>
+        <h2>{{wpPost.postTitle}}</h2>
+        <h3>D{{wpPost.postAuthor}}</h3>
+        <p snEllipsis>I've had a pretty messed up day. If we just dsad sdadsdsadsadsa dsa dsadsdsadsdsadsa dssa.</p>
+      </ion-item>
+
     </button>
   </ion-list>
   <div *ngIf="selectedItem" padding>
