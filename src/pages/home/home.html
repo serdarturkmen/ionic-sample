@@ -8,17 +8,23 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" pager="true" paginationType="bullets" *ngIf="deviceType == 'mobile'">
-    <ion-slide *ngFor="let slide of allSlides" class="swiper-no-swiping" [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')', 'background-size': 'cover'}"></ion-slide>
+  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" pager="true" paginationType="bullets"
+              *ngIf="deviceType == 'mobile'">
+    <ion-slide *ngFor="let slide of allSlides" class="swiper-no-swiping"
+               [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')', 'background-size': 'cover'}"></ion-slide>
     <div *ngIf="currentIndex > 0" class="swiper-button-prev swiper-button-white" (click)="previousSlide()"></div>
-    <div *ngIf="currentIndex < allSlides.length-1" class="swiper-button-next swiper-button-white" (click)="nextSlide()"></div>
+    <div *ngIf="currentIndex < allSlides.length-1" class="swiper-button-next swiper-button-white"
+         (click)="nextSlide()"></div>
   </ion-slides>
 
-  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" loop="true" autoplay="2000" pager="true" paginationType="bullets"
+  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" loop="true" autoplay="2000" pager="true"
+              paginationType="bullets"
               *ngIf="deviceType == 'large'">
-    <ion-slide *ngFor="let slide of allSlides" class="swiper-no-swiping" [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')', 'background-size': 'cover'}"></ion-slide>
+    <ion-slide *ngFor="let slide of allSlides" class="swiper-no-swiping"
+               [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')', 'background-size': 'cover'}"></ion-slide>
     <div *ngIf="currentIndex > 0" class="swiper-button-prev swiper-button-white" (click)="previousSlide()"></div>
-    <div *ngIf="currentIndex < allSlides.length-1" class="swiper-button-next swiper-button-white" (click)="nextSlide()"></div>
+    <div *ngIf="currentIndex < allSlides.length-1" class="swiper-button-next swiper-button-white"
+         (click)="nextSlide()"></div>
   </ion-slides>
 
   <br>
@@ -27,7 +33,9 @@
   <!--Basic: auto-select the icon based on the platform -->
   <div style="display: inline-grid;">
     <div style="margin: 15px;">
-      <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+      <button item-right clear (click)='goHome($event)'>
+        <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+      </button>
       <div>Home Page</div>
     </div>
     <div style="margin: 15px;">

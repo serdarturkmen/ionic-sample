@@ -49,4 +49,8 @@ export class HomePage {
   slideChanged() {
     this.currentIndex = this.slides.realIndex;
   }
+
+  goHome($event) {
+    console.log("home page loading");
+  }
 }
