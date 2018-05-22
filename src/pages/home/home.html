@@ -7,7 +7,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content style="background-color: antiquewhite;">
   <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" pager="true" paginationType="bullets"
               *ngIf="deviceType == 'mobile'">
     <ion-slide *ngFor="let slide of allSlides" class="swiper-no-swiping"
@@ -32,33 +32,33 @@
   <br>
   <!--Basic: auto-select the icon based on the platform -->
   <div class="row">
-    <div style="margin: 15px;">
+    <div style="margin: 20px;">
       <button item-right clear (click)='goHome($event)'>
-        <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+        <ion-icon name="add-circle" style="zoom:4.0; color: cadetblue"></ion-icon>
       </button>
       <div>Home Page</div>
     </div>
-    <div style="margin: 15px;">
-      <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+    <div style="margin: 20px;">
+      <ion-icon name="body" style="zoom:4.0; color: cadetblue"></ion-icon>
       <div>Blog Page</div>
     </div>
 
-    <div style="margin: 15px;">
-      <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+    <div style="margin: 20px;">
+      <ion-icon name="car" style="zoom:4.0; color: cadetblue"></ion-icon>
       <div>Blog Page</div>
     </div>
 
-    <div style="margin: 15px;">
-      <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+    <div style="margin: 20px;">
+      <ion-icon name="bowtie" style="zoom:4.0; color: cadetblue"></ion-icon>
       <div>Blog Page</div>
     </div>
 
-    <div style="margin: 15px;">
-      <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+    <div style="margin: 20px;">
+      <ion-icon name="football" style="zoom:4.0; color: cadetblue"></ion-icon>
       <div>Blog Page</div>
     </div>
-    <div style="margin: 15px;">
-      <ion-icon name="add-circle" style="zoom:4.0;"></ion-icon>
+    <div style="margin: 20px;">
+      <ion-icon name="infinite" style="zoom:4.0; color: cadetblue"></ion-icon>
       <div>Dene Page</div>
     </div>
 
