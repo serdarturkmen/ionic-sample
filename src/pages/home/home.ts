@@ -16,6 +16,10 @@ export class HomePage {
   //ion slide sample data
   public allSlides: Array<Object> = [
     {
+      title: 'First attorney',
+      imageUrl: 'assets/imgs/attorney1.jpeg'
+    },
+    {
       title: 'Dream\'s Adventure',
       imageUrl: 'assets/imgs/01.jpg'
     },
