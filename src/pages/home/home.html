@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content style="background-color: #67809F;">
-  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" pager="true" paginationType="bullets"
-              *ngIf="deviceType == 'mobile'">
+  <ion-slides effect="fade" (ionSlideWillChange)="onSlideChanged()" paginationType="bullets" onwheel="true" autoplay="5000" loop="true" speed="500" pager="true"
+              *ngIf=" (allSlides && allSlides.length ) && deviceType == 'mobile'">
     <ion-slide *ngFor="let slide of allSlides"
                [ngStyle]="{'background' : 'url(' + slide.imageUrl + ')', 'background-size': 'cover'}"></ion-slide>
     <div *ngIf="currentIndex > 0" class="swiper-button-prev swiper-button-white" (click)="previousSlide()"></div>
